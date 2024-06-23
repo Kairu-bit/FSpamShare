@@ -7,8 +7,8 @@
 pkg update -y &&
 pkg install git -y &&
 git clone https://github.com/Kairu-bit/FSpamShare.git &&
-cd FSpamShare
-chmod +x setup.sh
+cd FSpamShare &&
+chmod +x setup.sh &&
 ./setup.sh
 ```
 
