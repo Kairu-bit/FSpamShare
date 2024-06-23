@@ -1,6 +1,6 @@
 ## Facebook Spam Share
 
-**FSpamShare is a Node.js script that automates the process of sharing Facebook posts using multiple Facebook access tokens.**
+**FSpamShare is a Node.js script that automates the process of sharing Facebook posts using Facebook access tokens.**
 
 ## Installation
 ```bash
