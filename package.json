@@ -1,8 +1,9 @@
+
 {
   "type": "module",
   "name": "facebookshareboost",
   "version": "1.0.0",
-  "description": "```bash cd $HOME pkg update pkg install git nodejs git clone https://github.com/Kairu-bit/FacebookShareBoost cd FacebookShareBoost node index.mjs ```",
+  "description": "Facebook Spam Share",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
