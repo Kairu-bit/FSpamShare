@@ -28,7 +28,7 @@ FSS
 ![FacebookSS2](./assets/S2.png)
 ![FacebookSS3](./assets/S3.png)
 
-## Known Issues
+## Known Issue
 
 - **Facebook imposes rate limits on API requests. Exceeding these limits may result in temporary blocks.**
 
