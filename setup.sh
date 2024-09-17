@@ -5,59 +5,70 @@ GREEN="\033[1;32m"
 YELLOW="\033[1;33m"
 BLUE="\033[1;34m"
 
-OS=$(uname -s)
-
-if [ "$OS" = "Linux" ]; then
-  if command -v apt-get > /dev/null; then
-    PACKAGE_MANAGER="apt-get"
-  elif command -v yum > /dev/null; then
-    PACKAGE_MANAGER="yum"
-  elif command -v dnf > /dev/null; then
-    PACKAGE_MANAGER="dnf"
-  elif command -v pacman > /dev/null; then
-    PACKAGE_MANAGER="pacman"
+get_package_manager() {
+  if [ -x "$(command -v pkg)" ]; then
+    echo "pkg"
+  elif [ -x "$(command -v apt-get)" ]; then
+    echo "apt-get"
+  elif [ -x "$(command -v yum)" ]; then
+    echo "yum"
+  elif [ -x "$(command -v dnf)" ]; then
+    echo "dnf"
+  elif [ -x "$(command -v pacman)" ]; then
+    echo "pacman"
+  elif [ -x "$(command -v brew)" ]; then
+    echo "brew"
   else
-    echo "${RED}[!]${YELLOW} Unsupported Linux distribution."
-    exit 1
+    echo "unsupported"
   fi
-elif [ "$OS" = "Darwin" ]; then
-  PACKAGE_MANAGER="brew"
-else
-  echo "${RED}[!]${YELLOW} Unsupported OS."
-  exit 1
-fi
+}
+
+OS=$(uname -s)
+PACKAGE_MANAGER=$(get_package_manager)
+
+case "$OS" in
+  Linux)
+    if [ "$PACKAGE_MANAGER" = "unsupported" ]; then
+      echo "${RED}[!]${YELLOW} Unsupported Linux distribution."
+      exit 1
+    fi
+    ;;
+  Darwin)
+    if [ "$PACKAGE_MANAGER" != "brew" ]; then
+      echo "${RED}[!]${YELLOW} Unsupported MacOS package manager."
+      exit 1
+    fi
+    ;;
+  *)
+    echo "${RED}[!]${YELLOW} Unsupported OS."
+    exit 1
+    ;;
+esac
 
 EXECUTABLE="$HOME/bin/FSS"
 
-createExecutable() {
+create_executable() {
   echo "${BLUE}[+]${YELLOW} Updating package lists..."
-  if [ "$PACKAGE_MANAGER" = "apt-get" ]; then
-    sudo apt-get update -y
-  elif [ "$PACKAGE_MANAGER" = "yum" ]; then
-    sudo yum check-update -y
-  elif [ "$PACKAGE_MANAGER" = "dnf" ]; then
-    sudo dnf check-update -y
-  elif [ "$PACKAGE_MANAGER" = "pacman" ]; then
-    sudo pacman -Syu --noconfirm
-  elif [ "$PACKAGE_MANAGER" = "brew" ]; then
-    brew update
-  fi
-  
+  case "$PACKAGE_MANAGER" in
+    pkg) pkg update -y ;;
+    apt-get) sudo apt-get update -y ;;
+    yum) sudo yum check-update -y ;;
+    dnf) sudo dnf check-update -y ;;
+    pacman) sudo pacman -Syu --noconfirm ;;
+    brew) brew update ;;
+  esac
+
   echo "${BLUE}[+]${YELLOW} Installing Node.js..."
-  if [ "$PACKAGE_MANAGER" = "apt-get" ]; then
-    sudo apt-get install nodejs -y
-  elif [ "$PACKAGE_MANAGER" = "yum" ]; then
-    sudo yum install nodejs -y
-  elif [ "$PACKAGE_MANAGER" = "dnf" ]; then
-    sudo dnf install nodejs -y
-  elif [ "$PACKAGE_MANAGER" = "pacman" ]; then
-    sudo pacman -S nodejs --noconfirm
-  elif [ "$PACKAGE_MANAGER" = "brew" ]; then
-    brew install node
-  fi
+  case "$PACKAGE_MANAGER" in
+    pkg) pkg install nodejs -y ;;
+    apt-get) sudo apt-get install nodejs -y ;;
+    yum) sudo yum install nodejs -y ;;
+    dnf) sudo dnf install nodejs -y ;;
+    pacman) sudo pacman -S nodejs --noconfirm ;;
+    brew) brew install node ;;
+  esac
 
   mkdir -p "$(dirname "$EXECUTABLE")"
-  touch "$EXECUTABLE"
   CURRENT_PATH=$(pwd)
 
   cat << EOF > "$EXECUTABLE"
@@ -89,9 +100,9 @@ if [ -e "$EXECUTABLE" ]; then
     echo "${BLUE}[+]${YELLOW} Simply run: ${GREEN}FSS"
   else 
     echo "${BLUE}[+]${YELLOW} The target directory does not exist. Proceeding to create the executable for FSS..."
-    createExecutable
+    create_executable
   fi
 else
-  createExecutable
+  create_executable
 fi
 
