@@ -22,19 +22,19 @@ FSS
 
 Once launched, a menu with the following options will appear:
 
-1. **Spam Share**: Share a Facebook post multiple times.
-2. **Show Tokens**: Display the stored Facebook access tokens.
-3. **Token Management**: Manage your access tokens (add or delete tokens).
-4. **Feedback**: Provide feedback or suggestions.
-5. **Exit**: Exit the program.
+- **Spam Share**: Share a Facebook post multiple times.
+- **Show Tokens**: Display the stored Facebook access tokens.
+- **Token Management**: Manage your access tokens (add or delete tokens).
+- **Feedback**: Provide feedback or suggestions.
+- **Exit**: Exit the program.
 
 ## Adding Facebook Access Tokens
 To add a Facebook access token:
-1. Select the "Token Management" option from the menu.
-2. Choose "Add Token".
-3. Enter your Facebook username, email, or phone number.
-4. Enter your Facebook password.
-5. If the message "Token Was Successfully Saved" appears, the token has been stored.
+- Select the "Token Management" option from the menu.
+- Choose "Add Token".
+- Enter your Facebook username, email, or phone number.
+- Enter your Facebook password.
+- If the message "Token Was Successfully Saved" appears, the token has been stored.
 
 > [!WARNING]
 > For security reasons, DO NOT use your main Facebook account. It is recommended to use a dummy or newly created account to avoid potential suspensions or account lockouts.
@@ -44,13 +44,13 @@ To add a Facebook access token:
 
 To spam shares on a Facebook post:
 
-1. Select the "Spam Share" option.
-2. Enter the URL of the Facebook post.
-3. Set the number of shares you want.
+- Select the "Spam Share" option.
+- Enter the URL of the Facebook post.
+- Set the number of shares you want.
 
 ## Auto Update
 
 The program automatically checks for updates from the Git repository. If updates are found, it will pull the latest changes.
 
 ## License
-[![MIT LICENSE]](./LICENSE);
+[MIT LICENSE](./LICENSE)
