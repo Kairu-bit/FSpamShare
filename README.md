@@ -6,8 +6,8 @@
 To install **FSS**, run the following commands:
 ```bash
 cd $HOME &&
-apt update &&
-pkg install git &&
+apt-get update -y &&
+pkg install git -y &&
 git clone https://github.com/Kairu-bit/FSpamShare &&
 cd FSpamShare &&
 chmod +x setup.sh &&
