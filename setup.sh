@@ -26,6 +26,12 @@ get_package_manager() {
 OS=$(uname -s)
 PACKAGE_MANAGER=$(get_package_manager)
 
+if [ "$OS" = "Linux" ] && [ "$PREFIX" = "/data/data/com.termux/files/usr" ]; then
+  EXECUTABLE="$PREFIX/bin/FSS"
+else
+  EXECUTABLE="$HOME/bin/FSS"
+fi
+
 case "$OS" in
   Linux)
     if [ "$PACKAGE_MANAGER" = "unsupported" ]; then
@@ -44,8 +50,6 @@ case "$OS" in
     exit 1
     ;;
 esac
-
-EXECUTABLE="$HOME/bin/FSS"
 
 create_executable() {
   echo "${BLUE}[+]${YELLOW} Updating package lists..."
