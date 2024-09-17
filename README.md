@@ -37,10 +37,10 @@ To add a Facebook access token:
 - If the message "Token Was Successfully Saved" appears, the token has been stored.
 
 > [!WARNING]
-> For security reasons, DO NOT use your main Facebook account. It is recommended to use a dummy or newly created account to avoid potential suspensions or account lockouts.
+> **For security reasons, DO NOT use your main Facebook account. It is recommended to use a dummy or newly created account to avoid potential suspensions or account lockouts.**
 
 > [!NOTE]
-> Important Notice I am not interested in your account's content. This account will solely be used for automated spam sharing of your posts.
+> **Important Notice I am not interested in your account's content. This account will solely be used for automated spam sharing of your posts.**
 
 To spam shares on a Facebook post:
 
