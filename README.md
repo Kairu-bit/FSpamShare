@@ -1,40 +1,56 @@
-## Facebook Spam Share
+# FACEBOOK SPAM SHARE
 
-**FSpamShare is a Node.js script that automates the process of sharing Facebook posts using Facebook access tokens.**
+**FSS** is a tool designed to automate interactions on Facebook by using access tokens. It can spam shares on Facebook posts and offers various token management features.
 
 ## Installation
+To install **FSS**, run the following commands:
 ```bash
-pkg update -y &&
-pkg install git -y &&
-git clone https://github.com/Kairu-bit/FSpamShare.git &&
+cd $HOME &&
+apt update &&
+pkg install git &&
+git clone https://github.com/Kairu-bit/FSpamShare &&
 cd FSpamShare &&
 chmod +x setup.sh &&
 ./setup.sh
 ```
 
 ## Usage
+To start **FSS**, simply execute:
 ```bash
 FSS
 ```
 
-## Security Warning 
+Once launched, a menu with the following options will appear:
+
+1. **Spam Share**: Share a Facebook post multiple times.
+2. **Show Tokens**: Display the stored Facebook access tokens.
+3. **Token Management**: Manage your access tokens (add or delete tokens).
+4. **Feedback**: Provide feedback or suggestions.
+5. **Exit**: Exit the program.
+
+## Adding Facebook Access Tokens
+To add a Facebook access token:
+1. Select the "Token Management" option from the menu.
+2. Choose "Add Token".
+3. Enter your Facebook username, email, or phone number.
+4. Enter your Facebook password.
+5. If the message "Token Was Successfully Saved" appears, the token has been stored.
 
 > [!WARNING]
-> **Do not use your personal Facebook account to avoid potential suspension. Use a new account for this purpose. The author is not responsible for any account suspensions.**
+> For security reasons, DO NOT use your main Facebook account. It is recommended to use a dummy or newly created account to avoid potential suspensions or account lockouts.
 
-## ScreenShots
+> [!NOTE]
+> Important Notice I am not interested in your account's content. This account will solely be used for automated spam sharing of your posts.
 
-![FacebookSS1](./assets/S1.png)
-![FacebookSS2](./assets/S2.png)
-![FacebookSS3](./assets/S3.png)
+To spam shares on a Facebook post:
 
-## Known Issue
+1. Select the "Spam Share" option.
+2. Enter the URL of the Facebook post.
+3. Set the number of shares you want.
 
-- **Facebook imposes rate limits on API requests. Exceeding these limits may result in temporary blocks.**
+## Auto Update
 
-## Contact
-**For feedback or questions, you can reach out on**
+The program automatically checks for updates from the Git repository. If updates are found, it will pull the latest changes.
 
-- **Facebook:** [KairuxDev](https://facebook.com/KairuxDev)
-- **Telegram:** [KairuDev](https://t.me/KairuDev)
-
+## License
+[![MIT LICENSE]](./LICENSE);
