@@ -1,6 +1,6 @@
 # FACEBOOK SPAM SHARE
 
-**FSS** is a tool designed to automate interactions on Facebook by using access tokens. It can spam shares on Facebook posts and offers various token management features.
+**FSS** is a tool designed to automate interactions on Facebook by using access tokens. It can spam shares on Facebook posts.
 
 ## Installation
 To install **FSS**, run the following commands:
